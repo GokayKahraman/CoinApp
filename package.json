@@ -1,0 +1,19 @@
+{
+  "name": "nuxt-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chart.js": "^3.3.2",
+    "core-js": "^3.9.1",
+    "node-cache": "^5.1.2",
+    "nuxt": "^2.15.3",
+    "vue-chartjs": "^3.5.1"
+  }
+}
