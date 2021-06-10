@@ -4,6 +4,7 @@
       v-if="loaded"
       :chartdata="chartdata"
       />
+      <p>denetgswaedhysme</p>
   </div>
 </template>
 
