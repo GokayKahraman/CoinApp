@@ -1,9 +1,25 @@
 const express = require('express')
+const axios = require("axios")
+var cache = require('memory-cache');
 const app = express()
 
-app.get('/echo/:what', (req, res) => {
-    res.json(req.params)
+
+app.get('/coins', (req, res) => {
+    if (cache.get("data")) {
+        console.log("başarılı")
+        res.json(cache.get("data"))
+    } else {
+        axios.get("https://api.coinlore.net/api/tickers/")
+        .then(function(response) {
+            cache.put("data", response.data, 30000)
+            res.json(cache.get("data"))
+        })
+    }
 })
+
+
+
+
 
 module.exports = {
    path: '/api',

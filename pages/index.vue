@@ -1,23 +1,16 @@
 <template>
   <div>
-    {{ param }}
+    <ChartContainer/>
   </div>
 </template>
 
 <script>
-const axios = require("axios")
+import ChartContainer from '../components/ChartContainer.vue'
+
+
 export default {
-  data() {
-    return {
-      param: null,
-    }
-  },
-    mounted: function() {
-    axios.get("/api/echo/hello-world")
-      .then(response => this.param = response.data)
-    },
-  
-} 
+  components: { ChartContainer }
+}
 </script>
 
 <style>
