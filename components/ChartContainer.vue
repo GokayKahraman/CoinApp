@@ -1,10 +1,9 @@
 <template>
-  <div class="chart">
+  <div class="chart" style="position: relative; height:400px; width:800px">
     <Bar-chart
       v-if="loaded"
       :chartdata="chartdata"
       />
-      <p>denetgswaedhysme</p>
   </div>
 </template>
 
@@ -22,7 +21,7 @@ export default {
       datasets: [
         {
           data: [],
-          backgroundColor: '#665191'
+          backgroundColor: 'green'
           
         },
       ]
@@ -30,7 +29,6 @@ export default {
   }),
   async mounted () {
     this.loaded = false
-    try {
       axios.get("/api/coins")
       .then(response => {
         response.data.data.map((element,index) => {
@@ -38,22 +36,16 @@ export default {
         if(index < 20){
           this.chartdata.labels.push(element.symbol)
         }
-        console.log(this.chartdata.labels)
-        
-        })
-        
-        
+        console.log(this.chartdata.labels) 
+        }) 
       })
       .then(this.loaded = true)
-    } catch (e) {
-      console.error(e)
-    }
   }
 }
 </script>
 
 <style>
 .chart {
-  background-color: rgb(163, 160, 160);
+  background-color: rgb(255, 254, 254);
 }
 </style>
